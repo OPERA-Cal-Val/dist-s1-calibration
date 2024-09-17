@@ -51,7 +51,7 @@ def main(event: str, distmetric_name: str, tracks_to_exclude: str):
     events = [e.strip() for e in event.split(" ")]
     if "all" in events:
         events = ALL_EVENTS
-    elif "all_fire" in events:
+    elif "all_fires" in events:
         events = df_events[df_events.event_type == "fire"].event_name.tolist()
     else:
         malformed_events = [e for e in events if e not in ALL_EVENTS]
