@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "event_name": "chiapas_fire_2024", "track_numbers": "172 107", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -94.344506944252259, 16.648308710647829 ] } },
+{ "type": "Feature", "properties": { "event_name": "yajiang_fire_2024", "track_numbers": "26 135", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ 101.138738645774851, 30.132960599477897 ] } },
+{ "type": "Feature", "properties": { "event_name": "bangladesh_coastal_flood_2024", "track_numbers": "150 114", "n_tracks": 2, "event_type": "flood" }, "geometry": { "type": "Point", "coordinates": [ 90.038508350442953, 23.083173803364854 ] } },
+{ "type": "Feature", "properties": { "event_name": "park_fire_2024", "track_numbers": "137 115", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -121.779159402739069, 40.082872029416158 ] } },
+{ "type": "Feature", "properties": { "event_name": "chilcotin_river_landslide_and_flood_2024", "track_numbers": "13 137", "n_tracks": 2, "event_type": "landslide" }, "geometry": { "type": "Point", "coordinates": [ -122.804482731059394, 51.857277089303928 ] } },
+{ "type": "Feature", "properties": { "event_name": "demak_flood_2024", "track_numbers": "76 127", "n_tracks": 2, "event_type": "flood" }, "geometry": { "type": "Point", "coordinates": [ 110.873443151495081, -6.893318823175719 ] } },
+{ "type": "Feature", "properties": { "event_name": "papau_new_guinea_landslide_2024", "track_numbers": "9 133", "n_tracks": 2, "event_type": "landslide" }, "geometry": { "type": "Point", "coordinates": [ 143.364975674384482, -5.380147175317643 ] } },
+{ "type": "Feature", "properties": { "event_name": "bioko_fire_2024", "track_numbers": "30 51", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ 8.749279664404446, 3.585322044183994 ] } },
+{ "type": "Feature", "properties": { "event_name": "attica_fire_2024", "track_numbers": "7 102 109", "n_tracks": 3, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ 23.91357527392524, 38.121812623057721 ] } },
+{ "type": "Feature", "properties": { "event_name": "belize_fire_south_2024", "track_numbers": "18 156", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -89.086248002381112, 16.096114940036941 ] } },
+{ "type": "Feature", "properties": { "event_name": "tuscany_flood_2023", "track_numbers": "15 168", "n_tracks": 2, "event_type": "flood" }, "geometry": { "type": "Point", "coordinates": [ 11.067825416941183, 43.882054637904979 ] } },
+{ "type": "Feature", "properties": { "event_name": "afghanistan_flood_2024", "track_numbers": "71 78", "n_tracks": 2, "event_type": "flood" }, "geometry": { "type": "Point", "coordinates": [ 69.259936741984546, 36.304417050972646 ] } },
+{ "type": "Feature", "properties": { "event_name": "durkee_fire_2024", "track_numbers": "", "n_tracks": 0, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -117.497527651575439, 44.35472861033864 ] } },
+{ "type": "Feature", "properties": { "event_name": "mai_mahiu_flood_and_landslides_2024", "track_numbers": "130 57", "n_tracks": 2, "event_type": "landslide" }, "geometry": { "type": "Point", "coordinates": [ 36.975917768821496, -1.216851020115198 ] } },
+{ "type": "Feature", "properties": { "event_name": "cipongkor_landslides_2024", "track_numbers": "98 149", "n_tracks": 2, "event_type": "landslide" }, "geometry": { "type": "Point", "coordinates": [ 107.311238849557554, -6.940524339529649 ] } },
+{ "type": "Feature", "properties": { "event_name": "chile_fire_2024", "track_numbers": "18 156", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -71.388698331524793, -33.078763633655363 ] } },
+{ "type": "Feature", "properties": { "event_name": "brazzaville_flood_and_landslides_2023", "track_numbers": "7 109", "n_tracks": 2, "event_type": "landslide" }, "geometry": { "type": "Point", "coordinates": [ 15.254240996644498, -4.222684562946975 ] } },
+{ "type": "Feature", "properties": { "event_name": "smokehouse_creek_fire_2024", "track_numbers": "5 12", "n_tracks": 2, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -100.716152048488368, 35.795602612905299 ] } },
+{ "type": "Feature", "properties": { "event_name": "monkey_creek_fire_2024", "track_numbers": "64", "n_tracks": 1, "event_type": "fire" }, "geometry": { "type": "Point", "coordinates": [ -119.276251279465285, 44.948359029737382 ] } },
+{ "type": "Feature", "properties": { "event_name": "southwest_france_flood_2023", "track_numbers": "30 8", "n_tracks": 2, "event_type": "flood" }, "geometry": { "type": "Point", "coordinates": [ -0.304289386269789, 45.768398383310348 ] } },
+{ "type": "Feature", "properties": { "event_name": "brazzaville_flood_and_landslides_2024", "track_numbers": "7 109", "n_tracks": 2, "event_type": "landslide" }, "geometry": { "type": "Point", "coordinates": [ 15.257113835076964, -4.220278493748724 ] } }
+]
+}

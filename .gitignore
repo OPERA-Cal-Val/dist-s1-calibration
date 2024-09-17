@@ -1,0 +1,84 @@
+# OS Files
+**/.DS_Store
+**/.DS_Store?
+
+# vscode
+.vscode
+
+# Vim files
+*.sw[mnop]
+
+# .pyenv files
+.python-version
+
+# pytest files
+.pytest_cache/
+
+# Jupyter files
+*.ipynb_checkpoints
+
+# Python build files
+build/
+
+# Rope Files
+.ropeproject/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Setuptools distribution folder.
+/dist/
+
+# Python egg metadata, regenerated from source files by setuptools.
+**/*.egg-info
+
+# Environments
+.env
+.envrc
+
+# Gdal and other image formats
+*.tif
+*.xml
+*.shp
+*.sbx
+*.sbn
+*.shx
+*.prj
+*.qpj
+*.dbf
+*.cpg
+*.msk
+*.kmz
+*.jpg
+*.wld
+*.lyr
+*.qmd
+*.sld
+*.kml
+*.lock
+
+# Zip files
+*.zip
+
+# Ignore logs
+*.log
+
+# Data files
+*.json
+
+# ignore parquet
+*.pqt
+
+# ignore xcel files
+*.xlsx
+
+# ignore pdf
+*.pdf
+
+# out notebooks
+out_notebooks/
+
+# Out metrics
+out_metrics/
