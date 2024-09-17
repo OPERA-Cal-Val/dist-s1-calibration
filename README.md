@@ -8,4 +8,9 @@ Using $\textrm{dist}$, we can find a suitable $T \in \mathbb R$ such that a chan
 
 # Install
 
-Install `dist-s1` environment (see the `environment.yml` from the research repository) and install `distmetrics` (which is currently private repo). Also needed is `einops` for the transformer model (see the `distmetrics` repository and it's `environment.yml`).
+Install `dist-s1` environment (see the `environment.yml` from the research repository) and install `distmetrics` (which is currently private repo). Also needed is `einops` for the transformer model (see the `distmetrics` repository and it's `environment.yml`). Make sure to install the `dist-s1` kernel too.
+
+
+# Usage
+
+`python run.py --event chile_fire_2024 --distmetric_name 'mahalanobis_2d mahalanobis_vh mahalanobis_1d_max log_ratio_vh transformer'`

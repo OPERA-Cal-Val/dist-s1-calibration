@@ -63,19 +63,26 @@ def main(event: str, distmetric_name: str):
     ipynb_out_dir = Path("out_notebooks")
     ipynb_out_dir.mkdir(exist_ok=True, parents=True)
 
+    event_track_lut = {e: t.split(' ')
+                       for (e, t) in zip(df_events.event_name.tolist(),
+                                         df_events.track_numbers.tolist()) if t}
+
     for event_name in tqdm(events, desc="events"):
-        print(event_name)
+        print('Event: ', event_name)
+        tracks = event_track_lut[event_name]
         for distmetric_name in distmetric_names:
-            print(distmetric_name)
-            out_site_nb_dir = ipynb_out_dir / event_name
-            out_site_nb_dir.mkdir(exist_ok=True, parents=True)
-            for in_nb in in_nbs:
-                print(in_nb)
-                pm.execute_notebook(
-                    in_nb,
-                    output_path=out_site_nb_dir / in_nb,
-                    parameters=dict(EVENT_NAME=event_name, DISTMETRIC_NAME=distmetric_name),
-                )
+            print('Metric: ', distmetric_name)
+            for track_idx, track in enumerate(tracks):
+                print(f'Track {track}: {track_idx+1} / {len(tracks)}')
+                out_site_nb_dir = ipynb_out_dir / event_name
+                out_site_nb_dir.mkdir(exist_ok=True, parents=True)
+                for in_nb in in_nbs:
+                    print(in_nb)
+                    pm.execute_notebook(
+                        in_nb,
+                        output_path=out_site_nb_dir / f'{distmetric_name}_{track}_{in_nb}',
+                        parameters=dict(EVENT_NAME=event_name, DISTMETRIC_NAME=distmetric_name, TRACK_IDX=track_idx),
+                    )
 
 
 if __name__ == "__main__":
