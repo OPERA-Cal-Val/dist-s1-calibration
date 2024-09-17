@@ -54,7 +54,6 @@ def main(event: str, distmetric_name: str):
                          f'Please use one of the following names {DISTMETRIC_NAMES}.'
                          )
 
-
     print(f'Will run on the following {len(events)} sites:\n {"\n".join(events)}')
 
     in_nbs = [
@@ -67,6 +66,7 @@ def main(event: str, distmetric_name: str):
     for event_name in tqdm(events, desc="events"):
         print(event_name)
         for distmetric_name in distmetric_names:
+            print(distmetric_name)
             out_site_nb_dir = ipynb_out_dir / event_name
             out_site_nb_dir.mkdir(exist_ok=True, parents=True)
             for in_nb in in_nbs:
