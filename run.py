@@ -22,7 +22,7 @@ DISTMETRIC_NAMES = [
     required=True,
     type=str,
     help=(
-        "Provide names of events; multiple events put in quotes separted by a space. Possible events are"
+        "Provide names of events; for multiple events, put in quotes separted by a space. Possible events are"
         f"{', '.join(ALL_EVENTS)}"
     ),
 )
@@ -32,12 +32,22 @@ DISTMETRIC_NAMES = [
     type=str,
     default="transformer",
     help=(
-        "Provide names of distmetrics to use; for multiple metrics put in quotes separated by space. Possible metrics "
+        "Provide names of distmetrics to use; for multiple metrics, put in quotes separated by space. Possible metrics "
         f"are {', '.join(DISTMETRIC_NAMES)}"
     ),
 )
+@click.option(
+    "--tracks_to_exclude",
+    required=False,
+    type=str,
+    default="",
+    help=(
+        "Tracks to exclude; for multiple tracks, put in quotes separated by space. Warning: will exclude specified "
+        "tracks for all events."
+    ),
+)
 @click.command()
-def main(event: str, distmetric_name: str):
+def main(event: str, distmetric_name: str, tracks_to_exclude: str):
     events = [e.strip() for e in event.split(" ")]
     if "all_fire" in event:
         events = df_events[df_events.event_type == "fire"].event_name.tolist()
@@ -46,6 +56,7 @@ def main(event: str, distmetric_name: str):
         if malformed_events:
             raise ValueError(f'At least one of the event strings is mal-formed: {",".join(malformed_events)}'
                              'Each event must be in one of the possible events.')
+    tracks_to_exclude = [t for t in tracks_to_exclude.split(' ')]
 
     distmetric_names = [d.strip() for d in distmetric_name.split(" ")]
     malformed_distmetrics = [d for d in distmetric_names if d not in DISTMETRIC_NAMES]
@@ -73,6 +84,8 @@ def main(event: str, distmetric_name: str):
         for distmetric_name in distmetric_names:
             print('Metric: ', distmetric_name)
             for track_idx, track in enumerate(tracks):
+                if track in tracks_to_exclude:
+                    continue
                 print(f'Track {track}: {track_idx+1} / {len(tracks)}')
                 out_site_nb_dir = ipynb_out_dir / event_name
                 out_site_nb_dir.mkdir(exist_ok=True, parents=True)
