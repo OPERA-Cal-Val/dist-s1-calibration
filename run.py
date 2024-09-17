@@ -49,7 +49,9 @@ DISTMETRIC_NAMES = [
 @click.command()
 def main(event: str, distmetric_name: str, tracks_to_exclude: str):
     events = [e.strip() for e in event.split(" ")]
-    if "all_fire" in event:
+    if "all" in events:
+        events = ALL_EVENTS
+    if "all_fire" in events:
         events = df_events[df_events.event_type == "fire"].event_name.tolist()
     else:
         malformed_events = [e for e in events if e not in ALL_EVENTS]
@@ -85,6 +87,7 @@ def main(event: str, distmetric_name: str, tracks_to_exclude: str):
             print('Metric: ', distmetric_name)
             for track_idx, track in enumerate(tracks):
                 if track in tracks_to_exclude:
+                    print(f'ignoring Track {track}')
                     continue
                 print(f'Track {track}: {track_idx+1} / {len(tracks)}')
                 out_site_nb_dir = ipynb_out_dir / event_name
