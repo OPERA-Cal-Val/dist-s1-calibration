@@ -51,13 +51,14 @@ def main(event: str, distmetric_name: str, tracks_to_exclude: str):
     events = [e.strip() for e in event.split(" ")]
     if "all" in events:
         events = ALL_EVENTS
-    if "all_fire" in events:
+    elif "all_fire" in events:
         events = df_events[df_events.event_type == "fire"].event_name.tolist()
     else:
         malformed_events = [e for e in events if e not in ALL_EVENTS]
         if malformed_events:
             raise ValueError(f'At least one of the event strings is mal-formed: {",".join(malformed_events)}'
                              'Each event must be in one of the possible events.')
+
     tracks_to_exclude = [t for t in tracks_to_exclude.split(' ')]
 
     distmetric_names = [d.strip() for d in distmetric_name.split(" ")]
