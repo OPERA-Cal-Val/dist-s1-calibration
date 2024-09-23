@@ -49,10 +49,17 @@ DISTMETRIC_NAMES = [
 @click.command()
 def main(event: str, distmetric_name: str, tracks_to_exclude: str):
     events = [e.strip() for e in event.split(" ")]
+    lookback_delta_days = 0
     if "all" in events:
         events = ALL_EVENTS
     elif "all_fires" in events:
-        events = df_events[df_events.event_type == "fire"].event_name.tolist()
+        events = df_events[df_events.event_type == 'fire'].event_name.tolist()
+    # landslide takes precedence over floods so "flood and landslide events" will be classified as "landslide"
+    elif "all_floods" in events:
+        events = df_events[df_events.event_type == 'flood'].event_name.tolist()
+        lookback_delta_days = 60
+    elif "all_landslides" in events:
+        events = df_events[df_events.event_type == 'landslide'].event_name.tolist()
     else:
         malformed_events = [e for e in events if e not in ALL_EVENTS]
         if malformed_events:
@@ -68,7 +75,7 @@ def main(event: str, distmetric_name: str, tracks_to_exclude: str):
                          f'Please use one of the following names {DISTMETRIC_NAMES}.'
                          )
 
-    print(f'Will run on the following {len(events)} sites:\n {"\n".join(events)}')
+    print(f'Will run on the following {len(events)} sites:\n{"\n".join(events)}')
 
     in_nbs = [
         "1_Generating_Metrics.ipynb",
@@ -98,7 +105,8 @@ def main(event: str, distmetric_name: str, tracks_to_exclude: str):
                     pm.execute_notebook(
                         in_nb,
                         output_path=out_site_nb_dir / f'{distmetric_name}_{track}_{in_nb}',
-                        parameters=dict(EVENT_NAME=event_name, DISTMETRIC_NAME=distmetric_name, TRACK_IDX=track_idx),
+                        parameters=dict(EVENT_NAME=event_name, DISTMETRIC_NAME=distmetric_name, TRACK_IDX=track_idx,
+                                        LOOKBACK_DELTA_DAYS=lookback_delta_days),
                     )
 
 
