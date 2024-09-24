@@ -14,6 +14,8 @@ DISTMETRIC_NAMES = [
     "mahalanobis_vh",
     "mahalanobis_1d_max",
     "log_ratio_vh",
+    "cusum_vh",
+    "cusum_prob_max"
 ]
 
 
